@@ -1,0 +1,8 @@
+<aura:component>
+    <aura:attribute name="acctList" type="Account[]"/>
+    <aura:attribute name="checkedList" type="Boolean[]" default="[true, true, true]"/>
+
+    <aura:iteration items="{!v.acctList}" var="acc"> <!-- iteration account record.-->
+        <c:accountItem account = "{!acc}" checkedList = "{!v.checkedList}" /> <!-- Call accountItem Component.--> 
+    </aura:iteration>
+</aura:component>	

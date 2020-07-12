@@ -1,0 +1,21 @@
+<aura:component controller = "accountRecord" implements="force:appHostable" >
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="eventAccount" event="c:selectAccount" action="{!c.handleEventAccount}"/>
+
+    <aura:attribute name="acctList" type="Account[]"/>
+    <!-- <aura:attribute name="nameList" type="Account[]"/> -->
+    <aura:attribute name="checkedList" type="Boolean[]" default="[true, true, true]"/>
+    <aura:attribute name="modalAcct" type="Account"/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/> 
+
+    <ui:inputCheckbox aura:id="checkbox" label="Name"  value="{!v.checkedList[0]}"/>
+    <ui:inputCheckbox aura:id="checkbox" label="Phone"  value="{!v.checkedList[1]}"/>
+    <ui:inputCheckbox aura:id="checkbox" label="Email"  value="{!v.checkedList[2]}"/>
+ 
+    <br/>
+    <!-- <c:modalFilter modalAcct = "{!v.modalAcct}" isOpen = "{!v.isOpen}"/> -->
+    <c:accountTable acctList = "{!v.acctList}" checkedList = "{!v.checkedList}"/>
+    <c:modalFilter modalAcct = "{!v.modalAcct}" isOpen = "{!v.isOpen}"/>
+
+</aura:component>

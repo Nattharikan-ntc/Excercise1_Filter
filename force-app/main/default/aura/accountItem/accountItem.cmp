@@ -1,0 +1,26 @@
+<aura:component>
+    <aura:attribute name="account" type="Account"/> 
+    <aura:attribute name="checkedList" type="Boolean[]"/>
+    <aura:registerEvent name="eventAccount" type="c:selectAccount"/>
+
+    <!--Show Record-->
+    <tr class="slds-hint-parent" onclick="{!c.selectAccount}">
+        <aura:if isTrue="{!v.checkedList[0]}">
+          <th scope="row">
+              <div class="slds-truncate"><a href="javascript:void(0);">{!v.account.Name}</a></div>
+          </th>
+        </aura:if>
+
+        <aura:if isTrue="{!v.checkedList[1]}">
+          <td>
+              <div class="slds-truncate">{!v.account.Phone}</div>
+          </td>
+        </aura:if>
+
+        <aura:if isTrue="{!v.checkedList[2]}">
+          <td>
+              <div class="slds-truncate">{!v.account.Email__c}</div>
+          </td>
+        </aura:if>
+      </tr>                   
+</aura:component>	
